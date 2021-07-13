@@ -16,7 +16,7 @@
                     <button (click)='taskBack(task)' [disabled] = 'task.stage == 0'
                             class="icon-only x-small mx-2"
                             [attr.data-test-id]="generateTestId(task.name)+ '-back'">
-                      <i class="material-icons">arrow_back</i>
+                      <i class="material-icons">arrow_back</i> 
                     </button>
 
                     <button (click)='taskForward(task)' [disabled] = 'task.stage == 3'
@@ -25,7 +25,7 @@
                       <i class="material-icons">arrow_forward</i>
                     </button>
 
-                    <button class="icon-only danger x-small mx-2"
+                    <button (click)='deleteTask(task.name)' class="icon-only danger x-small mx-2"
                             [attr.data-test-id]="generateTestId(task.name)+ '-delete'">
                       <i class="material-icons">delete</i>
                     </button>

@@ -34,26 +34,35 @@ export class KanbanBoard implements OnInit {
     }
   }
 
+  //  Funcion para agregar nueva Tarea al tablero
   addTask(newTask){
-    console.log(newTask)
     let addNewTask = {} as Task;
     addNewTask.name = newTask;
     addNewTask.stage = 0;
     this.tasks.push(addNewTask);
-    console.log(this.tasks)
+    this.newTask = '';
     this.configureTasksForRendering();
   }
 
+  // Funcionamiento de las flechas
   taskForward(task){
     task.stage =task.stage + 1;
-    console.log(task.stage)
     this.configureTasksForRendering();
   }
 
   taskBack(task){
     task.stage =task.stage - 1;
-    console.log(task.stage)
     this.configureTasksForRendering();
+  }
+
+  // Funcion para eliminar tarea del tablero
+  deleteTask(name){
+    for( let i = 0; i < this.tasks.length; i++ ){
+      if( this.tasks[i].name == name ){
+        this.tasks.splice(i,1)
+        this.configureTasksForRendering();
+      }
+    }
   }
 
   generateTestId = (name) => {
