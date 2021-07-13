@@ -44,6 +44,18 @@ export class KanbanBoard implements OnInit {
     this.configureTasksForRendering();
   }
 
+  taskForward(task){
+    task.stage =task.stage + 1;
+    console.log(task.stage)
+    this.configureTasksForRendering();
+  }
+
+  taskBack(task){
+    task.stage =task.stage - 1;
+    console.log(task.stage)
+    this.configureTasksForRendering();
+  }
+
   generateTestId = (name) => {
     return name.split(' ').join('-');
   }
